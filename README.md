@@ -47,10 +47,11 @@ The goal is to apply various machine learning algorithms to classify patients ac
 
 ## Results
 
-| Model                | Accuracy |
-|---------------------|----------|
-| Logistic Regression | 74%      |
-| Random Forest       | 72%      |
+| Model                  | Accuracy |
+|------------------------|----------|
+| Logistic Regression    | 74.6%    |
+| Support Vector Machine | 76.6%    |
+| Random Forest          | 72.0%    |
 
 ## 📂 Project Structure
 diabetes-prediction-ml/
