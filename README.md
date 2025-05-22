@@ -53,7 +53,9 @@ The goal is to apply various machine learning algorithms to classify patients ac
 | Support Vector Machine | 76.6%    |
 | Random Forest          | 72.0%    |
 
-## 📂 Project Structure
+## SVM was the most accurate model
+
+## Project Structure
 diabetes-prediction-ml/
 │
 ├── data/ # Dataset files (optional, or link to Kaggle)
@@ -61,4 +63,20 @@ diabetes-prediction-ml/
 ├── scripts/ # Python scripts for preprocessing/training
 ├── README.md # Project documentation
 └── requirements.txt # Python dependencies
+
+## Conclusion
+
+After exploring the dataset, applying preprocessing steps, and testing multiple classification algorithms, the Support Vector Machine (SVM) achieved the highest accuracy on the test set, approximately 76%. Based on this performance, SVM was selected as the most suitable model for this classification problem.
+
+This project provided a straightforward comparison of different models and demonstrated how machine learning can be applied to real-world medical data.
+
+
+## Tools Used
+
+- Python
+- Pandas
+- Matplotlib & Seaborn
+- Scikit-learn
+- Jupyter Notebook
+
 
