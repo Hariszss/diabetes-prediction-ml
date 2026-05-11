@@ -1,82 +1,98 @@
 # Diabetes Prediction Using Machine Learning
 
-##  Project Overview
+![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python&logoColor=white)
+![Scikit-learn](https://img.shields.io/badge/Scikit--learn-ML-orange?logo=scikit-learn&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-This project focuses on predicting whether a patient has diabetes based on diagnostic medical measurements. It uses the **Pima Indians Diabetes Dataset**, which contains health-related data for female patients of at least 21 years of age from the Pima Indian population.
+**Author:** Charalampos Zisis
 
-The goal is to apply various machine learning algorithms to classify patients accurately and understand the performance of each model.
+---
+
+## Overview
+
+Binary classification project predicting whether a patient has diabetes based on diagnostic medical measurements. Three classifiers are trained, evaluated, and compared on the **Pima Indians Diabetes Dataset** (768 patients, 8 clinical features).
+
+---
 
 ## Dataset
 
-- **Source**: [Pima Indians Diabetes Dataset](https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database)
-- **Observations**: 768
-- **Features**: 8 input features and 1 output label (`Outcome`)
-- **Target**: Binary classification (0 = No diabetes, 1 = Diabetes)
+- **Source:** [Pima Indians Diabetes Database – Kaggle](https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database)
+- **Observations:** 768 female patients (age ≥ 21)
+- **Target:** Binary — `1` = Diabetes, `0` = No diabetes
 
-| Feature               | Description                             |
-|------------------------|-----------------------------------------|
-| Pregnancies           | Number of times pregnant                |
-| Glucose               | Plasma glucose concentration            |
-| BloodPressure         | Diastolic blood pressure (mm Hg)        |
-| SkinThickness         | Triceps skin fold thickness (mm)        |
-| Insulin               | 2-Hour serum insulin (mu U/ml)          |
-| BMI                   | Body mass index                         |
-| DiabetesPedigreeFunction | Diabetes pedigree function             |
-| Age                   | Age (years)                             |
+| Feature | Description |
+|---|---|
+| Pregnancies | Number of times pregnant |
+| Glucose | Plasma glucose concentration |
+| BloodPressure | Diastolic blood pressure (mm Hg) |
+| SkinThickness | Triceps skin fold thickness (mm) |
+| Insulin | 2-hour serum insulin (μU/ml) |
+| BMI | Body mass index |
+| DiabetesPedigreeFunction | Genetic diabetes risk score |
+| Age | Age in years |
 
-##  Methodology
+---
 
-1. **Data Preprocessing**
-   - Handling zero values as missing data
-   - Feature scaling and normalization
-   - Train-test split
+## Methodology
 
-2. **Exploratory Data Analysis (EDA)** _(to be expanded)_
-   - Correlation analysis
-   - Distribution plots
+1. **Data Preprocessing** — Zero-value imputation for physiologically impossible entries, feature scaling with `StandardScaler`, 80/20 train-test split.
+2. **Exploratory Data Analysis** — Distribution plots, correlation matrix, pairplot by outcome class.
+3. **Model Training** — Logistic Regression, Support Vector Machine (RBF kernel), Random Forest Classifier.
+4. **Evaluation** — Accuracy, Confusion Matrix, Precision/Recall/F1.
 
-3. **Model Training**
-   - Logistic Regression
-   - Random Forest Classifier
-   - (More models can be added in future iterations)
-
-4. **Model Evaluation**
-   - Accuracy score
-   - Confusion Matrix
-   - Classification Report (Precision, Recall, F1-score)
+---
 
 ## Results
 
-| Model                  | Accuracy |
-|------------------------|----------|
-| Logistic Regression    | 74.6%    |
-| Support Vector Machine | 76.6%    |
-| Random Forest          | 72.0%    |
+| Model | Accuracy |
+|---|:---:|
+| **SVM (RBF kernel)** | **76.6%** |
+| Logistic Regression | 74.6% |
+| Random Forest | 72.0% |
 
-## SVM was the most accurate model
+SVM achieved the best accuracy and was selected as the final model.
+
+### Model Accuracy Comparison
+![Model comparison](figures/model_comparison.png)
+
+---
+
+## Exploratory Data Analysis
+
+### Feature Distributions
+![Feature distributions](figures/feature_distributions.png)
+
+### Correlation Matrix
+![Correlation heatmap](figures/correlation_heatmap.png)
+
+> **Key insight:** Glucose is the strongest predictor of diabetes outcome (r = 0.47), followed by BMI (r = 0.29) and Age (r = 0.24).
+
+---
 
 ## Project Structure
-diabetes-prediction-ml/
-│
-├── data/ # Dataset files (optional, or link to Kaggle)
-├── notebooks/ # Jupyter Notebooks for analysis
-├── scripts/ # Python scripts for preprocessing/training
-├── README.md # Project documentation
-└── requirements.txt # Python dependencies
 
-## Conclusion
+```
+├── diabetes project.ipynb    # Full analysis notebook
+├── figures/                  # EDA and results plots
+├── requirements.txt          # Python dependencies
+└── README.md
+```
 
-After exploring the dataset, applying preprocessing steps, and testing multiple classification algorithms, the Support Vector Machine (SVM) achieved the highest accuracy on the test set, approximately 76%. Based on this performance, SVM was selected as the most suitable model for this classification problem.
+---
 
-This project provided a straightforward comparison of different models and demonstrated how machine learning can be applied to real-world medical data.
+## How to Run
 
+```bash
+# Install dependencies
+pip install -r requirements.txt
 
-## Tools Used
+# Open the notebook
+jupyter notebook "diabetes project.ipynb"
+```
 
-- Python
-- Pandas
-- Matplotlib & Seaborn
-- Scikit-learn
-- Jupyter Notebook
+---
 
+## Stack
 
+`Python` `Scikit-learn` `Pandas` `NumPy` `Matplotlib` `Seaborn`  
+Dataset: Pima Indians Diabetes Database (UCI / Kaggle)
